@@ -6,7 +6,7 @@
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
-    "modules-center": ["sway/window"],
+    "modules-center": ["sway/window", "custom/test"],
     "modules-right": ["custom/media", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock#date", "clock"],
     // Modules configuration
     "fixed-center": false,
@@ -16,14 +16,7 @@
         "format": "{icon}",
         "format-icons": {
              "1": "󰈹",
-             "8": "󰎅",
-    //         "2": "",
-    //         "3": "",
-    //         "4": "",
-    //         "5": "",
-    //         "urgent": "",
-    //         "focused": "",
-    //         "default": ""
+             "12": "󰎅"
          }
     },
     "keyboard-state": {
@@ -34,6 +27,14 @@
             "locked": "",
             "unlocked": ""
         }
+    },
+    "custom/test": {
+        "exec": "$HOME/.config/waybar/hello.py",
+        "format": "{}",
+        "return-type": "json",
+        "on-click": "$HOME/.config/waybar/hello.py | wl-copy",
+        "interval": "once",
+        "signal": 5
     },
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
@@ -106,9 +107,8 @@
         // "thermal-zone": 2,
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C {icon}",
-        "format-icons": "",
+        "format-icons": ""
     },
     "backlight": {
         // "device": "acpi_video1",
@@ -161,13 +161,8 @@
         "format": "{0}",
         "return-type": "string",
         "max-length": 40,
-        "format-icons": {
-            "spotify": "",
-            "default": "🎜"
-        },
-        "interval": 10,
         "escape": true,
-        "exec": "playerctl metadata title"
+        "exec": "playerctl metadata title --follow"
         // "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
