@@ -5,9 +5,9 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad"],
+    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
     "modules-center": ["sway/window", "custom/test"],
-    "modules-right": ["custom/media", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock#date", "clock"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock#date", "clock"],
     // Modules configuration
     "fixed-center": false,
     "sway/workspaces": {
@@ -16,14 +16,14 @@
         "format": "{icon}",
         "format-icons": {
              "1": "󰈹",
-             "12": "󰎅"
+             "12": " "
          }
     },
     "custom/test": {
         "exec": "$HOME/.config/waybar/hello.py",
         "format": "{}",
         "return-type": "json",
-        "on-click": "$HOME/.config/waybar/hello.py | jq -r '.tooltip' | tr -d '\n' | wl-copy",
+        "on-click": "$HOME/.config/waybar/hello.py | jq -r '.tooltip' | wl-copy",
         "interval": "once",
         "signal": 5
     },
@@ -58,7 +58,7 @@
         "format": "{}% "
     },
     "temperature": {
-        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
         "critical-threshold": 80,
         "format": "{temperatureC}°C {icon}",
         "format-icons": ""
