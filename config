@@ -5,12 +5,12 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/scratchpad", "custom/media"],
-    "modules-center": ["sway/window", "custom/test"],
+    "modules-left": ["hyprland/workspaces", "custom/media"],
+    "modules-center": ["hyprland/window", "custom/test"],
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock#date", "clock"],
     // Modules configuration
     "fixed-center": false,
-    "hypr/workspaces": {
+    "hyprland/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
         "format": "{icon}",
@@ -27,10 +27,10 @@
         "interval": "once",
         "signal": 5
     },
-    "sway/mode": {
+    "hyprland/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
-    "sway/scratchpad": {
+    "hyprland/scratchpad": {
         "format": "{icon} {count}",
         "show-empty": false,
         "format-icons": ["", ""],
@@ -41,8 +41,7 @@
         "timezone": "Europe/Berlin",
 		    "interval": 10,
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-		    "tooltip": true, 
-        "on-click": "date | wl-copy"
+		    "tooltip": true
 	  },
     "clock#date": {
         "timezone": "Europe/Berlin",
