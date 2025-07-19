@@ -10,7 +10,7 @@
     "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock#date", "clock"],
     // Modules configuration
     "fixed-center": false,
-    "sway/workspaces": {
+    "hypr/workspaces": {
     //     "disable-scroll": true,
     //     "all-outputs": true,
         "format": "{icon}",
