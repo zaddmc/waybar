@@ -108,8 +108,8 @@ window#waybar {
 }
 #mpd.disconnected,
 #mpd.stopped {
-  color: @foreground;
-  border-bottom-color: transparent;
+  color: @playerctl-color;
+  border-bottom-color: @playerctl-color;
 }
 #custom-playerctl {
   color: @playerctl-color;

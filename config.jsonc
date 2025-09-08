@@ -128,12 +128,18 @@
 		"spacing": 5
 	},
 	"custom/playerctl": {
-		"format": " 󰐊  {}",
+		"format": " {icon}  {text}",
 		"return-type": "json",
-		"max-length": 40,
+		"max-length": 80,
 		"escape": true,
-		"exec": "playerctl -a metadata --format '{\"text\": \"{{title}} - {{artist}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{title}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+		"exec": "bash -c '/home/zadd/.config/waybar/scripts/playerctl-wrapper.sh'",
 		"on-click": "playerctl play-pause",
-		"on-click-right": "playerctl next"
+		"on-click-right": "playerctl next",
+		"format-icons": {
+			"Playing": "󰐊",
+			"Paused": "󰏤",
+			"Stopped": "󰎊,
+			"none": "󰎊"
+		}
 	}
 }
