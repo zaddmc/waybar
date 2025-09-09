@@ -143,17 +143,19 @@
 		}
 	},
 	"mpris": {
-		"format": "{player_icon}   {title} - {artist}",
-		"format-paused": "{status_icon}   {title} - {artist}",
-		"format-stopped": "{status_icon} Nothing Playing",
+		"format": "{player_icon} {title} - {artist}",
+		"format-paused": "{player_icon} {title} - {artist}",
+		"format-stopped": "󰝚 Nothing playing",
+		"format-disconnected": "󰝚 Nothing playing",
+		"max-length": 40,
 		"player-icons": {
-			"default": "▶",
-			"mpv": "🎵"
+			"Playing": "󰐊",
+			"Paused": "󰏤",
+			"Stopped": "󰝚",
+			"default": "󰝚"
 		},
-		"status-icons": {
-			"paused": "⏸",
-			"stopped": "󰎊",
-			"none": "󰎊"
-		}
+		"tooltip-format": "{player}: {artist} - {title}",
+		"on-click": "playerctl play-pause",
+		"on-click-right": "playerctl next"
 	}
 }
