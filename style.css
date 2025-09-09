@@ -123,6 +123,18 @@ window#waybar {
   color: @orange;
   border-bottom-color: @orange;
 }
+#mpris {
+  color: @magenta;
+  border-bottom-color: @magenta;
+}
+#mpris.playing {
+  color: @cyan;
+  border-bottom-color: @cyan;
+}
+#mpris.paused {
+  color: @orange;
+  border-bottom-color: @orange;
+}
 #clock {
   color: @clock-color;
   border-bottom-color: @clock-color;

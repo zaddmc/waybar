@@ -138,7 +138,21 @@
 		"format-icons": {
 			"Playing": "󰐊",
 			"Paused": "󰏤",
-			"Stopped": "󰎊,
+			"Stopped": "󰎊",
+			"none": "󰎊"
+		}
+	},
+	"mpris": {
+		"format": "{player_icon}   {title} - {artist}",
+		"format-paused": "{status_icon}   {title} - {artist}",
+		"format-stopped": "{status_icon} Nothing Playing",
+		"player-icons": {
+			"default": "▶",
+			"mpv": "🎵"
+		},
+		"status-icons": {
+			"paused": "⏸",
+			"stopped": "󰎊",
 			"none": "󰎊"
 		}
 	}
