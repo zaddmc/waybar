@@ -23,22 +23,10 @@
 	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
-		"format": "{name}",
-		"format-icons": {
-			"1": "󰖟",
-			"2": "",
-			"3": "",
-			"4": "󰭹",
-			"5": "󰕧",
-			"6": "",
-			"7": "",
-			"8": "󰣇",
-			"9": "",
-			"10": ""
-		}
+		"format": "{name}"
 	},
 	"clock": {
-		"timezone": "Europe/Berlin",
+		"timezone": "Europe/Copenhagen",
 		"interval": 10,
 		"tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
 		"calendar": {
@@ -53,13 +41,23 @@
 		}
 	},
 	"clock#date": {
-		"timezone": "Europe/Berlin",
-		"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+		"timezone": "Europe/Copenhagen",
+		"tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
 		"format": "{:%d-%m-%Y}",
-		"on-click": "date | wl-copy"
+		"on-click": "date | wl-copy",
+		"calendar": {
+			"weeks-pos": "right",
+			"format": {
+				"months": "<span color='#d3c6aa'><b>{}</b></span>",
+				"days": "<span color='#e67e80'>{}</span>",
+				"weeks": "<span color='#a7c080'><b>W{}</b></span>",
+				"weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+				"today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+			}
+		}
 	},
 	"cpu": {
-		"format": "󰘚 {usage}%",
+		"format": "  {usage}%",
 		"tooltip": true,
 		"on-click": "kitty -e htop"
 	},
@@ -86,7 +84,6 @@
 		"format-plugged": " {capacity}%",
 		"format-alt": "{icon} {time}",
 		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-		//"format-icons": ["", "", "", "", ""],
 	},
 	"network": {
 		"format-wifi": "  {essid} ({signalStrength}%)  {bandwidthUpBytes}  {bandwidthDownBytes}",
@@ -118,7 +115,7 @@
 		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
 	},
 	"backlight": {
-		"format": "{icon} {percent}%",
+		"format": "{icon}  {percent}%",
 		"format-icons": ["󰃞", "󰃟", "󰃠"],
 		"on-scroll-up": "brightnessctl set +5%",
 		"on-scroll-down": "brightnessctl set 5%-"
