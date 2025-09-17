@@ -22,9 +22,10 @@
 	// Modules configuration
 	"hyprland/workspaces": {
 		"disable-scroll": true,
-		"show-special": true,
+		"show-special": false,
 		"all-outputs": true,
-		"format": "{name}"
+		"format": "{name}",
+		"sort-by": "id"
 	},
 	"clock": {
 		"timezone": "Europe/Copenhagen",
