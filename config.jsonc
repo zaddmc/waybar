@@ -24,8 +24,11 @@
 		"disable-scroll": true,
 		"show-special": false,
 		"all-outputs": true,
-		"format": "{name}",
-		"sort-by": "id"
+		"format": "{icon}",
+		"sort-by": "id",
+		"format-icons": {
+			"external": "E"
+		}
 	},
 	"clock": {
 		"timezone": "Europe/Copenhagen",
