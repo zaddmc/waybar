@@ -10,6 +10,7 @@
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": [
 		"pulseaudio",
+		"hyprland/submap",
 		"tray",
 		"backlight",
 		"cpu",
@@ -27,9 +28,11 @@
 		"format": "{icon}",
 		"sort-by": "id",
 		"format-icons": {
-			"external": "E"
+			"external": "E",
+			"12": "F2"
 		}
 	},
+	"hyprland/submap": { "format": "󱎴  Projection" },
 	"clock": {
 		"timezone": "Europe/Copenhagen",
 		"interval": 10,

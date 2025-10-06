@@ -71,6 +71,7 @@ window#waybar {
 #temperature,
 #battery,
 #network,
+#submap,
 #pulseaudio,
 #backlight,
 #tray {
@@ -103,6 +104,10 @@ window#waybar {
 }
 
 /* Module-specific styling */
+#submap {
+  color: @red;
+  border-bottom-color: @red;
+}
 #mpd {
   color: @mpd-color;
   border-bottom-color: @mpd-color;
