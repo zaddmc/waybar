@@ -64,6 +64,7 @@ window#waybar {
 #mpd,
 #custom-weather,
 #custom-playerctl,
+#custom-serverstatus,
 #mpris,
 #clock,
 #cpu,
@@ -105,8 +106,8 @@ window#waybar {
 
 /* Module-specific styling */
 #submap {
-  color: @red;
-  border-bottom-color: @red;
+  color: @blue;
+  border-bottom-color: @blue;
 }
 #mpd {
   color: @mpd-color;
@@ -128,6 +129,14 @@ window#waybar {
 #custom-playerctl.Paused {
   color: @orange;
   border-bottom-color: @orange;
+}
+#custom-serverstatus {
+  color: @green;
+  border-bottom-color: @green;
+}
+#custom-serverstatus.offline {
+  color: @red;
+  border-bottom-color: @red;
 }
 #mpris {
   color: @magenta;

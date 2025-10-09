@@ -6,7 +6,7 @@
 	"margin": 0,
 	"fixed-center": true,
 
-	"modules-left": ["network", "custom/playerctl"],
+	"modules-left": ["network", "custom/serverstatus", "custom/playerctl"],
 	"modules-center": ["hyprland/workspaces"],
 	"modules-right": [
 		"pulseaudio",
@@ -103,8 +103,8 @@
 	},
 	"pulseaudio": {
 		"format": "{icon} {volume}% {format_source}",
-		"format-bluetooth": "{volume}% {icon} {format_source}",
-		"format-bluetooth-muted": "󰝟  {icon} {format_source}",
+		"format-bluetooth": "{volume}% {icon}  {format_source}",
+		"format-bluetooth-muted": "󰝟  {icon}  {format_source}",
 		"format-muted": "󰝟  {format_source}",
 		"format-source": "{volume}% ",
 		"format-source-muted": "",
@@ -146,6 +146,12 @@
 			"Stopped": "󰎊",
 			"none": "󰎊"
 		}
+	},
+	"custom/serverstatus": {
+		"format": "HS {text}",
+		"exec": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
+		"return-type": "json",
+		"interval": 30
 	},
 	"mpris": {
 		"format": "{player_icon} {title} - {artist}",
