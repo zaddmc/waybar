@@ -1,172 +1,172 @@
 {
-	"layer": "top",
-	"position": "top",
-	"height": 25,
-	"spacing": 1,
-	"margin": 0,
-	"fixed-center": true,
+  "layer": "top",
+  "position": "top",
+  "height": 25,
+  "spacing": 1,
+  "margin": 0,
+  "fixed-center": true,
 
-	"modules-left": ["network", "custom/serverstatus", "custom/playerctl"],
-	"modules-center": ["hyprland/workspaces"],
-	"modules-right": [
-		"pulseaudio",
-		"hyprland/submap",
-		"tray",
-		"backlight",
-		"cpu",
-		"memory",
-		"temperature",
-		"battery",
-		"clock#date",
-		"clock"
-	],
-	// Modules configuration
-	"hyprland/workspaces": {
-		"disable-scroll": true,
-		"show-special": false,
-		"all-outputs": true,
-		"format": "{icon}",
-		"sort-by": "id",
-		"format-icons": {
-			"external": "E",
-			"12": "F2"
-		}
-	},
-	"hyprland/submap": { "format": "󱎴  Projection" },
-	"clock": {
-		"timezone": "Europe/Copenhagen",
-		"interval": 10,
-		"tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
-		"calendar": {
-			"weeks-pos": "right",
-			"format": {
-				"months": "<span color='#d3c6aa'><b>{}</b></span>",
-				"days": "<span color='#e67e80'>{}</span>",
-				"weeks": "<span color='#a7c080'><b>W{}</b></span>",
-				"weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
-				"today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
-			}
-		}
-	},
-	"clock#date": {
-		"timezone": "Europe/Copenhagen",
-		"tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
-		"format": "{:%d-%m-%Y}",
-		"on-click": "date | wl-copy",
-		"calendar": {
-			"weeks-pos": "right",
-			"format": {
-				"months": "<span color='#d3c6aa'><b>{}</b></span>",
-				"days": "<span color='#e67e80'>{}</span>",
-				"weeks": "<span color='#a7c080'><b>W{}</b></span>",
-				"weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
-				"today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
-			}
-		}
-	},
-	"cpu": {
-		"format": "  {usage}%",
-		"tooltip": true,
-		"on-click": "kitty -e htop"
-	},
-	"memory": {
-		"format": "  {used:0.1f}G",
-		"tooltip-format": "{}% of {total:0.1f}GiB",
-		"on-click": "kitty -e htop"
-	},
-	"temperature": {
-		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
-		"critical-threshold": 80,
-		"format": "{icon} {temperatureC}°C",
-		"format-icons": ["󱃃", "󰔏", "󱃂"],
-		"on-click": "kitty -e s-tui"
-	},
-	"battery": {
-		"states": {
-			"good": 80,
-			"warning": 30,
-			"critical": 15
-		},
-		"format": "{icon} {capacity}%",
-		"format-charging": "󰂄 {capacity}%",
-		"format-plugged": " {capacity}%",
-		"format-alt": "{icon} {time}",
-		"format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
-	},
-	"network": {
-		"format-wifi": "  {essid} ({signalStrength}%)  {bandwidthUpBytes}  {bandwidthDownBytes}",
-		"format-ethernet": "󰈀 {ipaddr}/{cidr}",
-		"format-linked": "󰈀 {ifname} (No IP)",
-		"format-disconnected": "󰖪  Disconnected!",
-		"format-alt": "{ifname}: {ipaddr}/{cidr}",
-		"tooltip-format": "{ifname} via {gwaddr} "
-	},
-	"pulseaudio": {
-		"format": "{icon} {volume}% {format_source}",
-		"format-bluetooth": "{volume}% {icon}  {format_source}",
-		"format-bluetooth-muted": "󰝟  {icon}  {format_source}",
-		"format-muted": "󰝟  {format_source}",
-		"format-source": "{volume}% ",
-		"format-source-muted": "",
-		"format-icons": {
-			"headphone": "󰋋",
-			"hands-free": "󰥰",
-			"headset": "󰋎",
-			"phone": "󰏲",
-			"portable": "󰄝",
-			"car": "󰄋",
-			"default": ["󰕿", "󰖀", "󰕾"]
-		},
-		"on-click": "pavucontrol",
-		"on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
-	},
-	"backlight": {
-		"format": "{icon}  {percent}%",
-		"format-icons": ["󰃞", "󰃟", "󰃠"],
-		"on-scroll-up": "brightnessctl set +5%",
-		"on-scroll-down": "brightnessctl set 5%-"
-	},
-	"tray": {
-		"icon-size": 18,
-		"spacing": 5
-	},
-	"custom/playerctl": {
-		"format": " {icon}  {text}",
-		"return-type": "json",
-		"max-length": 80,
-		"escape": true,
-		"exec": "bash -c '/home/zadd/.config/waybar/scripts/playerctl-wrapper.sh'",
-		"on-click": "playerctl play-pause",
-		"on-click-right": "playerctl next",
-		"format-icons": {
-			"Playing": "󰐊",
-			"Paused": "󰏤",
-			"Stopped": "󰎊",
-			"none": "󰎊"
-		}
-	},
-	"custom/serverstatus": {
-		"format": "HS {text}",
-		"exec": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
-		"return-type": "json",
-		"interval": 30
-	},
-	"mpris": {
-		"format": "{player_icon} {title} - {artist}",
-		"format-paused": "{player_icon} {title} - {artist}",
-		"format-stopped": "󰝚 Nothing playing",
-		"format-disconnected": "󰝚 Nothing playing",
-		"max-length": 40,
-		"player-icons": {
-			"Playing": "󰐊",
-			"Paused": "󰏤",
-			"Stopped": "󰝚",
-			"default": "󰝚"
-		},
-		"tooltip-format": "{player}: {artist} - {title}",
-		"on-click": "playerctl play-pause",
-		"on-click-right": "playerctl next"
-	}
+  "modules-left": ["network", "custom/serverstatus", "custom/playerctl"],
+  "modules-center": ["hyprland/workspaces"],
+  "modules-right": [
+    "pulseaudio",
+    "hyprland/submap",
+    "tray",
+    "backlight",
+    "cpu",
+    "memory",
+    "temperature",
+    "battery",
+    "clock#date",
+    "clock"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "show-special": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "sort-by": "id",
+    "format-icons": {
+      "external": "E",
+      "12": "F2"
+    }
+  },
+  "hyprland/submap": { "format": "󱎴  Projection" },
+  "clock": {
+    "timezone": "Europe/Copenhagen",
+    "interval": 10,
+    "tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#e67e80'>{}</span>",
+        "weeks": "<span color='#a7c080'><b>W{:%V}</b></span>",
+        "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+        "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "clock#date": {
+    "timezone": "Europe/Copenhagen",
+    "tooltip-format": "<big>{}</big>\n<tt><small>{calendar}</small></tt>",
+    "format": "{:%d-%m-%Y}",
+    "on-click": "date | wl-copy",
+    "calendar": {
+      "weeks-pos": "right",
+      "format": {
+        "months": "<span color='#d3c6aa'><b>{}</b></span>",
+        "days": "<span color='#e67e80'>{}</span>",
+        "weeks": "<span color='#a7c080'><b>W{:%V}</b></span>",
+        "weekdays": "<span color='#7fbbb3'><b>{}</b></span>",
+        "today": "<span color='#dbbc7f'><b><u>{}</u></b></span>"
+      }
+    }
+  },
+  "cpu": {
+    "format": "  {usage}%",
+    "tooltip": true,
+    "on-click": "kitty -e htop"
+  },
+  "memory": {
+    "format": "  {used:0.1f}G",
+    "tooltip-format": "{}% of {total:0.1f}GiB",
+    "on-click": "kitty -e htop"
+  },
+  "temperature": {
+    "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+    "critical-threshold": 80,
+    "format": "{icon} {temperatureC}°C",
+    "format-icons": ["󱃃", "󰔏", "󱃂"],
+    "on-click": "kitty -e s-tui"
+  },
+  "battery": {
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+  "network": {
+    "format-wifi": "  {essid} ({signalStrength}%)  {bandwidthUpBytes}  {bandwidthDownBytes}",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰖪  Disconnected!",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format": "{ifname} via {gwaddr} "
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{volume}% {icon}  {format_source}",
+    "format-bluetooth-muted": "󰝟  {icon}  {format_source}",
+    "format-muted": "󰝟  {format_source}",
+    "format-source": "{volume}% ",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": "󰋋",
+      "hands-free": "󰥰",
+      "headset": "󰋎",
+      "phone": "󰏲",
+      "portable": "󰄝",
+      "car": "󰄋",
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+  },
+  "backlight": {
+    "format": "{icon}  {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5
+  },
+  "custom/playerctl": {
+    "format": " {icon}  {text}",
+    "return-type": "json",
+    "max-length": 80,
+    "escape": true,
+    "exec": "bash -c '/home/zadd/.config/waybar/scripts/playerctl-wrapper.sh'",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next",
+    "format-icons": {
+      "Playing": "󰐊",
+      "Paused": "󰏤",
+      "Stopped": "󰎊",
+      "none": "󰎊"
+    }
+  },
+  "custom/serverstatus": {
+    "format": "HS {text}",
+    "exec": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
+    "return-type": "json",
+    "interval": 30
+  },
+  "mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{player_icon} {title} - {artist}",
+    "format-stopped": "󰝚 Nothing playing",
+    "format-disconnected": "󰝚 Nothing playing",
+    "max-length": 40,
+    "player-icons": {
+      "Playing": "󰐊",
+      "Paused": "󰏤",
+      "Stopped": "󰝚",
+      "default": "󰝚"
+    },
+    "tooltip-format": "{player}: {artist} - {title}",
+    "on-click": "playerctl play-pause",
+    "on-click-right": "playerctl next"
+  }
 }
