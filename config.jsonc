@@ -150,6 +150,7 @@
   "custom/serverstatus": {
     "format": "HS {text}",
     "exec": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
+    "on-click": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
     "return-type": "json",
     "interval": 30
   },
