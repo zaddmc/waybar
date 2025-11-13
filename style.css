@@ -183,9 +183,21 @@ window#waybar {
   color: @battery-warning-color;
   border-bottom-color: @battery-warning-color;
 }
+
+@keyframes blink {
+  to {
+    background-color: #ffffff;
+    color: #000000;
+  }
+
 #battery.critical:not(.charging) {
   color: @battery-critical-color;
   border-bottom-color: @battery-critical-color;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 #network {
   color: @network-color;
