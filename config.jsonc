@@ -6,7 +6,12 @@
   "margin": 0,
   "fixed-center": true,
 
-  "modules-left": ["network", "custom/serverstatus", "custom/playerctl"],
+  "modules-left": [
+    "network",
+    "custom/serverstatus",
+    "custom/signal_mod",
+    "custom/playerctl"
+  ],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": [
     "pulseaudio",
@@ -95,11 +100,11 @@
   },
   "network": {
     "format-wifi": "  {essid} ({signalStrength}%)  {bandwidthUpBytes}  {bandwidthDownBytes}",
-    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "format-ethernet": "󰈀  {ifname}  {bandwidthUpBytes}  {bandwidthDownBytes}",
     "format-linked": "󰈀 {ifname} (No IP)",
     "format-disconnected": "󰖪  Disconnected!",
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
-    "tooltip-format": "{ifname} via {gwaddr} "
+    "tooltip-format": "{ifname} via {gwaddr}"
   },
   "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
@@ -119,18 +124,19 @@
     },
     "on-click": "pavucontrol",
     "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ +2%",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ -2%"
   },
   "backlight": {
     "format": "{icon}  {percent}%",
     "format-icons": ["󰃞", "󰃟", "󰃠"],
-    "on-scroll-up": "brightnessctl set +5%",
-    "on-scroll-down": "brightnessctl set 5%-"
+    "on-scroll-up": "brightnessctl set +1%",
+    "on-scroll-down": "brightnessctl set 1%-"
   },
   "tray": {
     "icon-size": 18,
-    "spacing": 5
+    "spacing": 5,
+    "icons": {}
   },
   "custom/playerctl": {
     "format": " {icon}  {text}",
@@ -139,7 +145,7 @@
     "escape": true,
     "exec": "bash -c '/home/zadd/.config/waybar/scripts/playerctl-wrapper.sh'",
     "on-click": "playerctl play-pause",
-    "on-click-right": "playerctl next",
+    "on-click-right": "bash -c '/home/zadd/.config/waybar/scripts/ffplay_toggle.sh'",
     "format-icons": {
       "Playing": "󰐊",
       "Paused": "󰏤",
@@ -148,11 +154,17 @@
     }
   },
   "custom/serverstatus": {
-    "format": "HS {text}",
-    "exec": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
-    "on-click": "bash -c '/home/zadd/.config/waybar/scripts/serverstatus.sh'",
+    "format": "🛢️{text}",
+    "exec": "~/.config/waybar/scripts/serverstatus.sh",
+    "on-click": "~/.config/waybar/scripts/serverstatus.sh",
     "return-type": "json",
     "interval": 30
+  },
+  "custom/signal_mod": {
+    "format": "",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/toggle_mod.sh",
+    "signal": 1
   },
   "mpris": {
     "format": "{player_icon} {title} - {artist}",

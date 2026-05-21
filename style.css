@@ -65,6 +65,7 @@ window#waybar {
 #custom-weather,
 #custom-playerctl,
 #custom-serverstatus,
+#custom-signal_mod,
 #mpris,
 #clock,
 #cpu,
@@ -138,6 +139,14 @@ window#waybar {
   color: @red;
   border-bottom-color: @red;
 }
+#custom-signal_mod.working {
+  color: @green;
+  border-bottom-color: @green;
+}
+#custom-signal_mod.error {
+  color: @red;
+  border-bottom-color: @red;
+}
 #mpris {
   color: @magenta;
   border-bottom-color: @magenta;
@@ -184,20 +193,20 @@ window#waybar {
   border-bottom-color: @battery-warning-color;
 }
 
-@keyframes blink {
-  to {
-    background-color: #ffffff;
-    color: #000000;
-  }
+/* @keyframes blink { */
+/*   to { */
+/*     background-color: #ffffff; */
+/*     color: #000000; */
+/*   } */
 
 #battery.critical:not(.charging) {
   color: @battery-critical-color;
   border-bottom-color: @battery-critical-color;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
+  /* animation-name: blink; */
+  /* animation-duration: 0.5s; */
+  /* animation-timing-function: linear; */
+  /* animation-iteration-count: infinite; */
+  /* animation-direction: alternate; */
 }
 #network {
   color: @network-color;
