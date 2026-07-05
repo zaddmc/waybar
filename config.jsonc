@@ -14,10 +14,12 @@
   ],
   "modules-center": ["hyprland/workspaces"],
   "modules-right": [
+    "systemd-failed-units",
     "pulseaudio",
     "hyprland/submap",
     "tray",
     "backlight",
+    "disk",
     "cpu",
     "memory",
     "temperature",
@@ -25,7 +27,9 @@
     "clock#date",
     "clock"
   ],
-  // Modules configuration
+  // =========================
+  //   Modules configuration
+  // =========================
   "hyprland/workspaces": {
     "disable-scroll": true,
     "show-special": false,
@@ -37,7 +41,7 @@
       "12": "F2"
     }
   },
-  "hyprland/submap": { "format": "󱎴  Projection" },
+  "hyprland/submap": { "format": "󱎴  Projection", "tooltip-format": "{}" },
   "clock": {
     "timezone": "Europe/Copenhagen",
     "interval": 10,
@@ -79,6 +83,7 @@
     "tooltip-format": "{}% of {total:0.1f}GiB",
     "on-click": "kitty -e htop"
   },
+  "disk": { "path": "/home/zadd", "format": "💾 {percentage_used}%" },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 80,
@@ -106,6 +111,7 @@
     "format-alt": "{ifname}: {ipaddr}/{cidr}",
     "tooltip-format": "{ifname} via {gwaddr}"
   },
+  "systemd-failed-units": { "hide-on-ok": true },
   "pulseaudio": {
     "format": "{icon} {volume}% {format_source}",
     "format-bluetooth": "{volume}% {icon}  {format_source}",
@@ -139,13 +145,13 @@
     "icons": {}
   },
   "custom/playerctl": {
-    "format": " {icon}  {text}",
+    "format": "{icon}  {text}",
     "return-type": "json",
     "max-length": 80,
     "escape": true,
-    "exec": "bash -c '/home/zadd/.config/waybar/scripts/playerctl-wrapper.sh'",
+    "exec": "~/.config/waybar/scripts/playerctl-wrapper.sh",
     "on-click": "playerctl play-pause",
-    "on-click-right": "bash -c '/home/zadd/.config/waybar/scripts/ffplay_toggle.sh'",
+    "on-click-right": "~/.config/waybar/scripts/ffplay_toggle.sh",
     "format-icons": {
       "Playing": "󰐊",
       "Paused": "󰏤",
@@ -167,18 +173,10 @@
     "signal": 1
   },
   "mpris": {
-    "format": "{player_icon} {title} - {artist}",
-    "format-paused": "{player_icon} {title} - {artist}",
-    "format-stopped": "󰝚 Nothing playing",
-    "format-disconnected": "󰝚 Nothing playing",
-    "max-length": 40,
-    "player-icons": {
-      "Playing": "󰐊",
-      "Paused": "󰏤",
-      "Stopped": "󰝚",
-      "default": "󰝚"
-    },
-    "tooltip-format": "{player}: {artist} - {title}",
+    "format": "󰐊 {title} - {artist}",
+    "format-paused": "󰏤 {title} - {artist}",
+    "format-stopped": "󰎊 Nothing playing", // This is dead code, fucking stupidity
+    "tooltip-format": "{player} {status}: {artist} - {title}",
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl next"
   }

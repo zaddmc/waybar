@@ -67,9 +67,11 @@ window#waybar {
 #custom-serverstatus,
 #custom-signal_mod,
 #mpris,
+#systemd-failed-units,
 #clock,
 #cpu,
 #memory,
+#disk,
 #temperature,
 #battery,
 #network,
@@ -159,6 +161,10 @@ window#waybar {
   color: @orange;
   border-bottom-color: @orange;
 }
+#mpris.stopped {
+  color: @orange;
+  border-bottom-color: @orange;
+}
 #clock {
   color: @clock-color;
   border-bottom-color: @clock-color;
@@ -168,6 +174,10 @@ window#waybar {
   border-bottom-color: @cpu-color;
 }
 #memory {
+  color: @memory-color;
+  border-bottom-color: @memory-color;
+}
+#disk {
   color: @memory-color;
   border-bottom-color: @memory-color;
 }
@@ -223,6 +233,10 @@ window#waybar {
 #pulseaudio.muted {
   color: @pulseaudio-muted-color;
   border-bottom-color: @pulseaudio-muted-color;
+}
+#systemd-failed-units {
+  color: @red;
+  border-bottom-color: @red;
 }
 #backlight {
   color: @backlight-color;
