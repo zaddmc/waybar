@@ -19,7 +19,7 @@
     "hyprland/submap",
     "tray",
     "backlight",
-    "disk",
+    "custom/disks",
     "cpu",
     "memory",
     "temperature",
@@ -83,7 +83,12 @@
     "tooltip-format": "{}% of {total:0.1f}GiB",
     "on-click": "kitty -e htop"
   },
-  "disk": { "path": "/home/zadd", "format": "💾 {percentage_used}%" },
+  "custom/disks": {
+    "format": "💾 {text}%",
+    "interval": 240,
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/disk.sh"
+  },
   "temperature": {
     "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
     "critical-threshold": 80,

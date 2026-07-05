@@ -71,7 +71,7 @@ window#waybar {
 #clock,
 #cpu,
 #memory,
-#disk,
+#custom-disks,
 #temperature,
 #battery,
 #network,
@@ -177,7 +177,7 @@ window#waybar {
   color: @memory-color;
   border-bottom-color: @memory-color;
 }
-#disk {
+#custom-disks {
   color: @memory-color;
   border-bottom-color: @memory-color;
 }
